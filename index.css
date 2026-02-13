@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: 'Londrina Sketch', cursive;
+  text-align: center;
+  padding: 4em 0;
+}
+
+
+/* .main-container {
+    background-color: hsl(0, 100%, 50%);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 2em;
+    margin: 3em;
+    height: 80vh;
+} */
+
+.main-container {
+    background-color: hsl(0, 100%, 50%);
+    border: 4px solid #222;
+    border-radius: 15px;
+    padding: 1.5rem; /* Use rem for better scaling */
+    margin: 1rem auto; /* Centers the container with space on top/bottom */
+    max-width: 600px; /* Prevents it from becoming a giant red wall on monitors */
+    width: 95%; /* Ensures it doesn't touch the screen edges on mobile */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-container {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* .etch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% ;  
+    height: 100%;
+    border-radius: 30px;
+} */
+
+.etch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px; /* Limits size on desktop */
+    aspect-ratio: 1 / 1; /* Keeps it a square */
+    margin: 0 auto; /* Centers it */
+    background-color: white;
+    /* border: 4px solid #333; */
+    touch-action: none; /* Crucial for mobile drawing! */
+}
+.etch-square {
+    border: 1px solid black;
+    background-color: white; /* Or any color just to test */
+    box-sizing: border-box; 
+}
+
+.reset-btn {
+    border: none;
+}
+
+.reset-btn:hover .fa-arrows-rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
+}
+
