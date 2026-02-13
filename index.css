@@ -19,20 +19,11 @@ figure, blockquote, dl, dd {
 body {
   min-height: 100vh;
   line-height: 1.5;
-  font-family: 'Londrina Sketch', cursive;
+  font-family: "Caveat", cursive;
   text-align: center;
   padding: 4em 0;
 }
 
-
-/* .main-container {
-    background-color: hsl(0, 100%, 50%);
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 2em;
-    margin: 3em;
-    height: 80vh;
-} */
 
 .main-container {
     background-color: hsl(0, 100%, 50%);
@@ -44,10 +35,18 @@ body {
     width: 95%; /* Ensures it doesn't touch the screen edges on mobile */
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
-.title-container {
+/* .title-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+} */
+
+.title-container {
+    display: flex;
+    flex-direction: column; /* Stacks title over buttons on small screens */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .btn-container {
@@ -56,28 +55,19 @@ body {
 }
 
 
-/* .etch-grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100% ;  
-    height: 100%;
-    border-radius: 30px;
-} */
-
 .etch-grid {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 800px; /* Limits size on desktop */
-    aspect-ratio: 1 / 1; /* Keeps it a square */
-    margin: 0 auto; /* Centers it */
+    max-width: 800px; 
+    aspect-ratio: 1 / 1; 
+    margin: 0 auto; 
     background-color: white;
-    /* border: 4px solid #333; */
-    touch-action: none; /* Crucial for mobile drawing! */
+    touch-action: none; 
 }
 .etch-square {
     border: 1px solid black;
-    background-color: white; /* Or any color just to test */
+    background-color: white; 
     box-sizing: border-box; 
 }
 
@@ -88,5 +78,12 @@ body {
 .reset-btn:hover .fa-arrows-rotate {
     transform: rotate(180deg);
     transition: transform 0.5s ease;
+}
+
+@media (min-width: 450px) {
+    .title-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 

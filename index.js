@@ -3,7 +3,6 @@ const gridBtn = document.querySelector('.grid-btn');
 const resetBtn = document.querySelector('.reset-btn')
 
 function createGrid(squaresPerSide) {
-    // etchGridContainer.innerText = '';
     const totalSquares = squaresPerSide * squaresPerSide;
     const squareSize = (100 / squaresPerSide) + '%';
 
@@ -15,7 +14,9 @@ function createGrid(squaresPerSide) {
         etchGridContainer.appendChild(square);
         
         square.addEventListener('mouseover', () => {
-        
+        if (square.style.backgroundColor !== "" && square.style.backgroundColor !== "white") {
+            return;
+        }
         const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
         square.style.backgroundColor = randomColor;  
         });
@@ -23,25 +24,23 @@ function createGrid(squaresPerSide) {
 }
 
 resetBtn.addEventListener('click', () => {
-    etchGridContainer.innerText = '';
-    createGrid(16);
+    const allSquares = document.querySelectorAll('.etch-square');
+    allSquares.forEach(square => square.style.backgroundColor = 'white');
 })
 
 gridBtn.addEventListener('click', () => {
-    etchGridContainer.innerText = '';
-    
     const userNumber = prompt("Enter a number between 1 and 100");
-    createGrid(userNumber);
-    if (isNaN(userNumber) || userNumber === null || userNumber.trim() === '') {
+    if (userNumber === null) return;
+    
+    const num = parseInt(userNumber);
+    if (isNaN(num) || num < 1 || num > 100) {
         alert("Please enter a valid number");
-        return;
+    } else {
+        etchGridContainer.innerHTML = '';
+        createGrid(num);
     }
-    if (userNumber < 1 || userNumber > 100) {
-        alert("Please enter number in range")
-    }
+    
 })
-
-
 
 createGrid(16);
 
