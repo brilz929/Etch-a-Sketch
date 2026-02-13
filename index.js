@@ -3,6 +3,7 @@ const gridBtn = document.querySelector('.grid-btn');
 const resetBtn = document.querySelector('.reset-btn')
 
 function createGrid(squaresPerSide) {
+    etchGridContainer.innerHTML = '';
     const totalSquares = squaresPerSide * squaresPerSide;
     const squareSize = (100 / squaresPerSide) + '%';
 
